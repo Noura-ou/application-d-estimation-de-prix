@@ -7,3 +7,4 @@ seaborn==0.12.2
 tzdata==2023.3
 python==3.11.3
 ipkernel==6.15.0
+plotly

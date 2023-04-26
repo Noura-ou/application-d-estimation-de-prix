@@ -1,7 +1,18 @@
 # Réaliser une application d'estimation de prix d'une voiture
 L'objectif est de réaliser une application d'estimation de prix d'une voiture (Votre client, un revendeur de voiture, souhaite la création d'une application pouvant estimer le prix d'une voiture)
 
-## La Base de Données :
+Developing a end-to-end prediction system
+
+To develop end-to-end prediction based project we have to perform following sequence of activities.
+
+    Data Collection
+    EDA and Data Preprocessing
+    Model Building
+    Performance Evaluation and Draw Conclusion
+    Deployment
+
+
+#### La Base de Données :
 
 
     car_ID : un identifiant unique pour chaque voiture dans l'ensemble de données.
@@ -35,7 +46,7 @@ L'objectif est de réaliser une application d'estimation de prix d'une voiture (
 
 
 #### Les conversions effectuées sur les variables : 
-Bonus :
+
 
     empattement : en mètre (1 pouce = 0,0254 mètre)
     longueur : en mètre
