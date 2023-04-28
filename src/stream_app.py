@@ -33,7 +33,7 @@ add_bg_from_url()
 st.markdown("<h1 style='color: #256550 ; text-align:center;'> Mon Application d'éstimation de prix d'une voiture </h1>", unsafe_allow_html=True)
 st.markdown("<h2 style='color: #256550 ; text-align:center;'>  </h2>", unsafe_allow_html=True)
   
-  
+
 # Définition des variables
 col1, col2, col3, col4, col5 = st.columns(5)
 with col1:
@@ -68,8 +68,6 @@ with col5:
     
     
 # add a button to trigger prediction
-
-    
 if st.button('Predict Price'):
     # create a dictionary with user inputs
     input_data = {
@@ -105,7 +103,6 @@ if st.button('Predict Price'):
     # use the pre-trained model to predict the price
     predicted_price = model.predict(input_df)[0]
     
-
 
 
 
