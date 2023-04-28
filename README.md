@@ -43,16 +43,15 @@ To develop end-to-end prediction based project we have to perform following sequ
 
 
 
-
 #### Les conversions effectuées sur les variables : 
 
 
-    empattement : en mètre (1 pouce = 0,0254 mètre)
-    longueur : en mètre
-    largeur : en mètre
-    hauteur : en mètre
+    empattement : en centimètre (1 pouce = 0,0254 mètre)
+    longueur : en centimètre
+    largeur : en centimètre
+    hauteur : en centimètre
     poids_vehicule : en kilogramme (1 livre = 0,453592 kilogramme)
-    taille_moteur : en litre (1 pouce cube = 0,0163871 litre)
+    taille_moteur : en centimètre cube (1 pouce cube = 0,0163871 litre)
     taux_alésage : en millimètre (1 pouce = 25,4 millimètres)
     course : en millimètre
     taux_compression : en ratio (pas de conversion nécessaire)
