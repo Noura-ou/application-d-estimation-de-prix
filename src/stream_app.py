@@ -1,7 +1,7 @@
 import streamlit as st
 import pickle
-import numpy as np
 import pandas as pd
+import tkinter as tk
 
 
 df = pd.read_csv('cleaned_data.csv')
@@ -15,21 +15,30 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://images.pexels.com/photos/1687147/pexels-photo-1687147.jpeg?auto=compress&cs=tinysrgb&w=1600");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+add_bg_from_url() 
 st.markdown("<h1 style='color: #256550 ; text-align:center;'> Mon Application d'éstimation de prix d'une voiture </h1>", unsafe_allow_html=True)
 st.markdown("<h2 style='color: #256550 ; text-align:center;'>  </h2>", unsafe_allow_html=True)
   
-# st.markdown(f"<h2 style='color: green;'>Les plus longs films : </h2>", unsafe_allow_html=True)
 
-
-categorical_features = ['etat_de_route', 'carburant', 'turbo', 'nombre_portes', 'type_vehicule', 'transmission', 'emplacement_moteur', 'type_moteur',
-                         'nombre_cylindres', 'systeme_carburant', 'marque_de_voiture']
-numeric_features = ['empattement', 'longueur_voiture', 'largeur_voiture', 'hauteur_voiture', 'poids_vehicule', 'taille_moteur', 
-                    'taux_alésage', 'course', 'taux_compression', 'chevaux', 'tour_moteur', 'consommation_ville', 'consommation_autoroute']
 
 # Définition des variables
 col1, col2, col3, col4, col5 = st.columns(5)
 with col1:
-    etat_de_route = st.selectbox('etat_de_route', df['etat_de_route'].unique())
+    etat_de_route = st.selectbox('Etat de route', df['etat_de_route'].unique())
     carburant = st.selectbox('carburant', df['carburant'].unique())
     turbo = st.selectbox('turbo', df['turbo'].unique())
     nombre_portes = st.selectbox('nombre_portes', df['nombre_portes'].unique())
@@ -97,62 +106,24 @@ if st.button('Predict Price'):
     # use the pre-trained model to predict the price
     predicted_price = model.predict(input_df)[0]
     
+
+
+
+
     # show the predicted price on the app
     if predicted_price>0:
-         st.info(f'Predicted price: {predicted_price:.2f} $')
+
+        root = tk.Tk()
+        root.title('Predicted price ')
+        root.geometry('500x100')
+
+        label = tk.Label(root, text=f'Le prix estimé de la voiture est : {predicted_price:.2f} $')
+        label.config(bg='#86aa9f', fg='white', font=('Arial', 16), padx=10, pady=10)
+        label.pack(fill=tk.BOTH, expand=True)
+
+        root.mainloop()
+
+         #st.info(f'Predicted price: {predicted_price:.2f} $')
     else:
         st.info('The trained data is not reasonable.')
-
-
-#____________________________________________________________________________________________________________________________________
-# Load the pickled model
-# with open('modèles_previsions.pkl', 'rb') as file:
-#     model = pickle.load(file)
-
-
-# # Create a function to make predictions using the loaded model
-# def predict(model, input):
-#     input_array = np.array
-#     prediction = model.predict(input_array.reshape(1, -1))
-#     return prediction[0]
-
-
-
-# # Define categorical and numerical features
-# categorical_features = ['etat_de_route', 'carburant', 'turbo', 'nombre_portes', 'type_vehicule', 'transmission', 'emplacement_moteur', 'type_moteur', 'nombre_cylindres', 'systeme_carburant', 'marque_de_voiture']
-# numeric_features = ['empattement', 'longueur_voiture', 'largeur_voiture', 'hauteur_voiture', 'poids_vehicule', 'taille_moteur', 'taux_alésage', 'course', 'taux_compression', 'chevaux', 'tour_moteur', 'consommation_ville', 'consommation_autoroute']
-
-# # Create a form for the user input
-# with st.form(key='my-form'):
-#     # Create selectbox for each feature
-#     # Create a dictionary that maps each feature to its options
-#     options = {
-#         'nombre_portes': ['two', 'four'],
-#         'nombre_cylindres': ['four', 'six', 'five', 'three', 'twelve', 'two', 'eight'],
-#         'systeme_carburant': ['mpfi', '2bbl', 'mfi', '1bbl', 'spfi', '4bbl', 'idi', 'spdi'],
-#         'type_moteur': ['dohc', 'ohcv', 'ohc', 'l', 'rotor', 'ohcf', 'dohcv'],
-#         'transmission': ['rwd', 'fwd', '4wd'],
-#         'emplacement_moteur': ['front', 'rear'],
-#         'etat_de_route': [3, 1, 2, 0, -1, -2],
-#         'marque_de_voiture': ['alfa-romero', 'audi', 'bmw', 'chevrolet', 'dodge', 'honda', 'isuzu', 'jaguar', 'mazda', 'buick', 'mercury', 'mitsubishi', 'nissan', 'peugeot', 'plymouth', 'porsche', 'renault', 'saab', 'subaru', 'toyota', 'volkswagen', 'volvo'],
-#         'carburant': ['gas', 'diesel'],
-#         'turbo': ['std', 'turbo'],
-#         'type_vehicule': ['convertible', 'hatchback', 'sedan', 'wagon', 'hardtop']
-#     }
-
-#     input = {}
-#     for feature in categorical_features:
-#         input[feature] = st.selectbox(f"Select {feature}", options=options[feature])
-#     for feature in numeric_features:
-#         input[feature] = st.number_input(f'Enter {feature}')
-
-#     # Add a button to trigger the prediction
-#     submit_button = st.form_submit_button(label='Make Prediction')
-
-# # Call the prediction function and display the result
-# if submit_button:
-#     prediction = predict(model, input)
-#     st.write('The prediction is:', prediction)
-
-
 
