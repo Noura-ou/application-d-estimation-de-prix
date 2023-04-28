@@ -13,8 +13,6 @@ To develop end-to-end prediction based project we have to perform following sequ
 
 
 #### La Base de Données :
-df = df.rename(columns={'symboling': 'etat_de_route', 'CarName': 'marque_voiture', 'fueltype': 'carburant', 'aspiration': 'turbo', 'doornumber': 'nombre_portes', 'carbody': 'type_vehicule', 'drivewheel': 'transmission', 'enginelocation': 'emplacement_moteur', 'wheelbase': 'empattement', 'carlength': 'longueur_voiture', 'carwidth': 'largeur_voiture', 'carheight': 'hauteur_voiture', 'curbweight': 'poids_vehicule', 'enginetype': 'type_moteur', 'cylindernumber': 'nombre_cylindres', 'enginesize': 'taille_moteur', 'fuelsystem': 'systeme_carburant', 'boreratio': 'taux_alésage', 'stroke': 'course', 'compressionratio': 'taux_compression', 'horsepower': 'chevaux', 'peakrpm': 'tour_moteur', 'citympg': 'consommation_ville', 'highwaympg': 'consommation_autoroute', 'price': 'prix'})
-
 
     car_ID : un identifiant unique pour chaque voiture dans l'ensemble de données.
     symboling (etat_de_route) : le niveau de risque d'assurance de la voiture, où -2 est le plus risqué et +3 est le moins risqué.
@@ -71,7 +69,7 @@ Bonus :
 
 
 ## Features
- ⚠️ - In progress
+ ⚠️ - Done
 
 
 ## Run the project Locally
