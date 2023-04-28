@@ -86,6 +86,10 @@ Go to the project directory :
 ```
 
 
+## App streamlit
+
+![alt text](/home/apprenant/Documents/projets/application-d-estimation-de-prix/capture.png)
+
 ## Useful Documentation
 
 - [Learning Curves IN Python SKlearn](https://vitalflux.com/learning-curves-explained-python-sklearn-example/)
