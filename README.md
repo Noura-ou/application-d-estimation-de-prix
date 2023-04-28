@@ -88,7 +88,7 @@ Go to the project directory :
 
 ## App streamlit
 
-![alt text](/home/apprenant/Documents/projets/application-d-estimation-de-prix/capture.png)
+![ screanshot application streamlit](capture.png)
 
 ## Useful Documentation
 
